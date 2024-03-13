@@ -1,0 +1,40 @@
+START
+    FUNCTION appendToFile(filename):
+        OPEN filename for appending
+        IF file is not opened successfully:
+            print error message
+            return
+        PROMPT user for input
+        READ input from user
+        WRITE input to the file
+        CLOSE the file
+
+    FUNCTION reverseString(str):
+        DECLARE variable reversedStr as a string
+        FOR each character in str:
+            prepend the character to reversedStr
+        RETURN reversedStr
+
+    FUNCTION reverseFileContent(inputFilename, outputFilename):
+        OPEN inputFilename for reading
+        IF input file is not opened successfully:
+            print error message
+            return
+        OPEN outputFilename for writing
+        IF output file is not opened successfully:
+            print error message
+            return
+        FOR each line in input file:
+            reverse the line using reverseString function
+            write the reversed line to the output file
+        CLOSE the input file
+        CLOSE the output file
+
+    FUNCTION main():
+        inputFilename = "CSC450_CT5_mod5.txt"
+        outputFilename = "CSC450-mod5-reverse.txt"
+        appendToFile(inputFilename)
+        reverseFileContent(inputFilename, outputFilename)
+        RETURN
+STOP
+
